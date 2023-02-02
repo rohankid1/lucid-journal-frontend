@@ -1,4 +1,14 @@
 import type { CreatePost, Post } from "./models";
+import url from "./config.json";
+
+const env = process.env.NODE_ENV;
+
+if (env === "production") {
+  console.log("running production version");
+}
+
+const postUrl = env === 'production' ? url.production.urlPost : url.development.urlPost;
+const getUrl = env === 'production' ? url.production.urlGet : url.development.urlGet;
 
 export async function createPost(
   post: CreatePost,
@@ -7,7 +17,7 @@ export async function createPost(
 ) {
   const { authorName, title, description, authKey } = post;
 
-  let res = await fetch("http://localhost:8080/posts/entries", {
+  let res = await fetch(postUrl, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -26,7 +36,7 @@ export async function createPost(
 }
 
 export async function getPosts(): Promise<Post[]> {
-  const res = await fetch("http://localhost:8080/posts");
+  const res = await fetch(getUrl);
   const data: Post[] = await res.json();
 
   return data;
