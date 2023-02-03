@@ -1,7 +1,7 @@
 {
     "production": {
-        "urlGet": "http://server.raine.page/lucid-journal/posts",
-        "urlPost": "http://server.raine.page/lucid-journal/posts/entries"
+        "urlGet": "https://server.raine.page/lucid-journal/posts",
+        "urlPost": "https://server.raine.page/lucid-journal/posts/entries"
     },
     "development": {
       "urlGet": "http://localhost:8080/posts",
