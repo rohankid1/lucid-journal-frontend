@@ -23,6 +23,5 @@
   "dependencies": {
     "@types/marked": "^4.0.8",
     "markdown-it": "^13.0.1",
-    "vite": "^4.0.0"
   }
 }
